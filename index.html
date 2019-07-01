@@ -8,11 +8,19 @@
     <link href="main.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<div class="header">Header is here. This will contain the top logo hockey icon and a welcome message.</div>
-<div class="main">Main text is here. Includes brief descriptive text for the quiz, then a button to start the quiz.
-    <button type="button">Start the quiz!</button>
+<div class="header">
+    <img class="icon" src=" " alt="hockey icon" />
 </div>
-<div class="footer">Footer is here. Centered and contains the current question number and score of the participant.</div>
+<div class="main">Are you ready to show you're a whiz at hockey? Take this quiz to test yourself!
+    <button type="button" class="startQuizButton">Start the quiz!</button>
+</div>
+<div class="questionAnswer"></div>
+<div class="footer">
+    <ul>
+        <li>Question <span class="questionNumber">0</span>/10</li>
+        <li>Score: <span class="score">0</span></li>
+    </ul>
+</div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="index.js"></script>
