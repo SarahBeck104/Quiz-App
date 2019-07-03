@@ -11,7 +11,7 @@ const STORE = [
     correctAnswer: 'Puck'
     // get an icon for correct/ incorrect answers???
 
-}
+},
 
 {
     question: 'How does a play start during a hockey game?',
@@ -23,7 +23,7 @@ const STORE = [
     ],
     correctAnswer: 'Face off'
 
-}
+},
 
 {
     question: 'What is the most critical gear for playing hockey?',
@@ -36,7 +36,7 @@ const STORE = [
     correctAnswer: 'Helmet with face mask, elbow and knee pads, skates'
 
     // safety first!
-}
+},
 
 {
     question: 'What is an interference?',
@@ -47,7 +47,7 @@ const STORE = [
         'When a player stands in front of the goalie'
     ],
     correctAnswer: 'When a player uses his body to impede the progress of an opponent with no effort to play the puck'
-}
+},
 
 {
     question: 'What is icing?',
@@ -58,7 +58,7 @@ const STORE = [
         'When a player slams another player into the ice'
     ],
     correctAnswer: 'When a player shoots the puck from behind the center red line, all the way across the opposing team’s goal line without the puck being touched'
-}
+},
 
 {
     question: 'What hand should you use as your top hand on the hockey stick?',
@@ -69,7 +69,7 @@ const STORE = [
         'Non-dominant foot'
     ],
     correctAnswer: 'Dominant hand'
-}
+},
 
 {
     question: 'What are the four main types of shots?',
@@ -80,7 +80,7 @@ const STORE = [
         'Elbow shot, knee shot, wrist shot, hand shot'
     ],
     correctAnswer: 'Slap shot, wrist shot, snap shot, backhand shot'
-}
+},
 
 {
     question: 'What is the most important skill as a hockey player?',
@@ -91,7 +91,7 @@ const STORE = [
         'Skating skills'
     ],
     correctAnswer: 'Skating skills'
-}
+},
 
 {
     question: 'What are the six main positions on a hockey team?',
@@ -102,7 +102,7 @@ const STORE = [
         '2 forwards, 2 defencemen, 2 goalies'
     ],
     correctAnswer: '3 forwards, 2 defencemen, 1 goalie'
-}
+},
 
 {
     question: 'How many periods are in a hockey game?',
@@ -125,29 +125,41 @@ const score = 0;
 
 
 
-//start quiz: when quiz is started, hide start div, unhide quiz form div
+//start quiz: when quiz is started, hide start div, unhide quiz form div/append quiz form info to empty div?
 function startQuiz() {
-$(".main").hide();
-$(".questionAnswer").show().html(// lots here... );
-)}
+$(".startQuizButton").on('click', function() {
+    $(".main").hide();
+    $(".questionAnswer").show();
+});
+
+};
 
 
 
 // generate question
+// get question from array by referencing the next question number
+// attaching question div with the info from that question
 
 function generateQuestion() {
-
-}
+$(".startQuizButton").on('click', function() {
+    $(".questionAnswer").append(STORE[questionNumber].question);
+    $(".questionAnswer").append(STORE[questionNumber].answers[0,1,2,3]);
+});
+};
 
 //increment question number
+// to get 1 higher question number it should increment ++ each time the next question is generated
+// for loop, max length of the amount of questions, 
 function incrementQuestionNumber() {
 
 }
 
 //increment score
+// to get 1 higher score it should increment ++ each time the "next" button is pressed AFTER a "correct feedback"
 function incrementScore() {
 $(".score").click(increment);
 }
+// ^ does the above achieve the same thing as updateScoreText? and thus the second one isn't needed?
 
 //render question in DOM
 function renderQuizQuestion() {
@@ -155,6 +167,7 @@ function renderQuizQuestion() {
 }
 
 //on submit run feedback for answer selected
+// starts when submit is hit when 1 radio button is selected
 //should use 
 
 function runAnswerFeedback() {
@@ -163,11 +176,16 @@ function runAnswerFeedback() {
 
 
 //feedback for correct answer
+// starts when submit is pressed with 1 radio button selected
+// need... some kind of logic? that if correctAnswer is selected, this feedback div is appended to an empty div
 function feedbackIfCorrect() {
 
 }
 
 //feeback for incorrect answer
+// starts when submit is pressed with 1 radio button selected
+// need... some kind of logic? that if correctAnswer is NOT the 1 selected, this feedback div is appended 
+// to an empty div
 function feedbackIfIncorrect() {
 
 }
@@ -175,22 +193,29 @@ function feedbackIfIncorrect() {
 //update score text
 function updateScoreText() {
 
+
 }
 
 
 //what happens when the user clicks next
+// 
 // Does function generateQuestion handle this?????? Look it up!
 function nextQuestion() {
 
 }
 
 //final feedback page when quiz is over
-//generates html to DOM based on their score -> if perfect, something, if higher than 7, something, if lower than 5, something?
+//generates html to DOM based on their score -> if perfect, something, if higher than 7, append
+// to empty div stuff about winning, if lower than 5, append to empty div feedback about their finale score
+// and needing some more work before stepping onto the ice
 function quizFinale() {
+// definitely an if / else / else if loop based on the finale score value after all 10 questions are answered
 
 }
 
 //start a new quiz function: when clicked will reload page to start quiz over
+// will only start when the "start over" button from the quizFinale feedback page is pressed, so
+// perhaps a 
 function startNewQuiz() {
 
 }
