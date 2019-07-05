@@ -143,7 +143,7 @@ $(".startQuizButton").on('click', function() {
 function generateQuestion() {
 $(".startQuizButton").on('click', function() {
     $(".questionAnswer").append(STORE[questionNumber].question);
-    $(".questionAnswer").append(STORE[questionNumber].answers[0,1,2,3]);
+    $(".questionAnswer").append(STORE[questionNumber].answers);
 });
 };
 
