@@ -123,6 +123,7 @@ const STORE = [
 const questionNumber = 0;
 const score = 0;
 
+let selectedRadioID;
 
 
 //start quiz: when quiz is started, hide start div, unhide quiz form div/append quiz form info to empty div?
@@ -130,56 +131,103 @@ function startQuiz() {
 $(".startQuizButton").on('click', function() {
     $(".main").hide();
     $(".questionAnswer").show();
+
 });
 
 };
-
-
 
 // generate question
 // get question from array by referencing the next question number
 // attaching question div with the info from that question
-
 function generateQuestion() {
-$(".startQuizButton").on('click', function() {
-    $(".questionAnswer").append(STORE[questionNumber].question);
-    $(".questionAnswer").append(STORE[questionNumber].answers);
-});
+    $(".startQuizButton").on('click',function() {
+        $('.question').append(STORE[questionNumber].question);
+        $('.radio #0').append(STORE[questionNumber].answers[0]);
+        $('.radio #1').append(STORE[questionNumber].answers[1]);
+        $('.radio #2').append(STORE[questionNumber].answers[2]);
+        $('.radio #3').append(STORE[questionNumber].answers[3]);
+        
+        incrementQuestionNumber();
+        incrementScore();
+    });
 };
+
 
 //increment question number
 // to get 1 higher question number it should increment ++ each time the next question is generated
 // for loop, max length of the amount of questions, 
 function incrementQuestionNumber() {
 
-}
+};
 
 //increment score
 // to get 1 higher score it should increment ++ each time the "next" button is pressed AFTER a "correct feedback"
 function incrementScore() {
-$(".score").click(increment);
-}
-// ^ does the above achieve the same thing as updateScoreText? and thus the second one isn't needed?
 
-//render question in DOM
-function renderQuizQuestion() {
+};
 
-}
+//this function will get the value of the id of answer selection
+function answerSelectedRadioID() {
+    let selectedRadioID = $('input[type=radio]:checked').attr('id');
+    return selectedRadioID;
+};
+
 
 //on submit run feedback for answer selected
 // starts when submit is hit when 1 radio button is selected
 //should use 
 
-function runAnswerFeedback() {
+// gets correct answer for question
+function correctAnswerMatch(){
+    let x = questionNumber - 1;
+    let testMatch = STORE[x].correctAnswer;
+    return testMatch;
+};
 
-}
+function runAnswerFeedback() {
+    $(".form").on('submit', function(event) {
+        event.preventDefault();
+        $(".questionAnswer").hide();
+        $(".feedback").show();
+
+        if ( ($('input[type=radio']:checked.length >0)){
+            questionNumber += 1;
+
+            //variables to compare the selected answer with the correct answer
+            let selection = selectedRadioID()
+            let answernum = testMatch()
+            if (selection === answernum) {
+                questionFeedbackCorrect();
+                //increments
+                score += 1;
+                // need function calls here for updating the progress and score
+            
+            } else {
+                questionFeedbackIncorrect();
+                // do I need anything else here?
+            };
+            // if the current question number is 10, then on submission the final feedback page will be displayed
+            if (questionNumber === 10){
+                $('.questionAnswer, .feedback').toggleClass('hide');
+                document.getElementsByClassName(".submitQuestion")[0].innerHTML = `See Quiz Results`;
+            }
+            else {
+                $(.questionAnswer, .feedback).toggleClass('hide');
+            }
+        }
+        else {
+            alert ("Please select an answer");
+        }
+    });
+};
 
 
 //feedback for correct answer
 // starts when submit is pressed with 1 radio button selected
 // need... some kind of logic? that if correctAnswer is selected, this feedback div is appended to an empty div
 function feedbackIfCorrect() {
-
+    let x = questionNumber - 1;
+    $(".feedback").html(`${STORE[x].questionFeedbackCorrect}`);
 }
 
 //feeback for incorrect answer
@@ -187,46 +235,73 @@ function feedbackIfCorrect() {
 // need... some kind of logic? that if correctAnswer is NOT the 1 selected, this feedback div is appended 
 // to an empty div
 function feedbackIfIncorrect() {
+    let x = questionNumber - 1;
+    $(".feedback").html(`${STORE[x].questionFeedbackIncorrect}`);
 
 }
 
-//update score text
-function updateScoreText() {
-
-
-}
-
-
-//what happens when the user clicks next
-// 
-// Does function generateQuestion handle this?????? Look it up!
+//what happens when the user clicks next question button
+// hides feedback and shows the question section for the next question
 function nextQuestion() {
+    $(.nextQuestion).on('click', function(){
+        if (questionNumber === 10) {
+            $(.finalSection, .feedback).toggleClass('hide');
+            $('input[type=radio]').prop('checked', false);
+            $(.score).toggleClass('score');
 
-}
+        }
+        else {
+            $('.questionAnswer, .feedback').toggleClass('hide');
+            $('input[type=radio]').prop('checked', false);
 
-//final feedback page when quiz is over
-//generates html to DOM based on their score -> if perfect, something, if higher than 7, append
-// to empty div stuff about winning, if lower than 5, append to empty div feedback about their finale score
-// and needing some more work before stepping onto the ice
-function quizFinale() {
-// definitely an if / else / else if loop based on the finale score value after all 10 questions are answered
+            $('.question').append(STORE[questionNumber].question);
+            $('.radio #0').append(STORE[questionNumber].answers[0]);
+            $('.radio #1').append(STORE[questionNumber].answers[1]);
+            $('.radio #2').append(STORE[questionNumber].answers[2]);
+            $('.radio #3').append(STORE[questionNumber].answers[3]);
+    
+        };
 
-}
 
-//start a new quiz function: when clicked will reload page to start quiz over
-// will only start when the "start over" button from the quizFinale feedback page is pressed, so
-// perhaps a 
-function startNewQuiz() {
+        });
 
-}
+        };
+        
+     
 
-//run quiz functions
-function createQuizApp() {
-    renderQuizQuestion();
-    startQuiz();
-    startNewQuiz();
-    nextQuestion();
-    runAnswerFeedback();
+
+
+            //start a new quiz function: when clicked will reload page to start quiz over
+            // will only start when the "start over" button from the quizFinale feedback page is pressed, so
+            // returns to welcome 
+            function startNewQuiz(){
+            $('.restart').on('click', function(){
+                        
+                $('.closingSection, .welcome, .scoreProgress').toggleClass('hide');
+                questionNumber = 0;
+                document.getElementsByClassName("question")[0].innerHTML= ``;
+                document.getElementsByClassName("radio 0")[0].innerHTML= ``;
+                document.getElementsByClassName("radio 1")[0].innerHTML= ``;
+                document.getElementsByClassName("radio 2")[0].innerHTML= ``;
+                document.getElementsByClassName("radio 3")[0].innerHTML= ``;
+                document.getElementsByClassName("submitQuestion")[0].innerHTML= `Next Question`;
+                $('.score').toggleClass('showScore');
+                           
+            });
+        };    
+        
+        //run quiz functions
+        function createQuizApp() {
+            renderQuizQuestion();
+            startQuiz();
+            startNewQuiz();
+            nextQuestion();
+            runAnswerFeedback();
+                        
+        };
+         
+    
+        
 
 }
 
