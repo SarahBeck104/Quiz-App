@@ -12,30 +12,36 @@
     <img class="icon" src=" " alt="hockey icon" />
 </div>
 <div class="main">Are you ready to show you're a whiz at hockey? Take this quiz to test yourself!
-    <input type="submit" class="startQuizButton">Start the quiz!</input>
+    <button type="submit" class="startQuizButton">Start the quiz!</button>
 </div>
-<div class="questionAnswer">
+<div class="questionAnswer"><h2 class="question"></h2>
     <form id="form">
-        <div><input type="radio" name="option" value="0" id="option0" checked>
-        <label for="option0"></label>
+        <div class="radio 0"><label><input type="radio" value="0" id="0" checked>
+        </label>
         </div>
-        <div><input type="radio" name="option" value="1" id="option1" checked>
-        <label for="option1"></label>
+        <div class="radio 1"><label><input type="radio" value="1" id="1">
+        </label>
         </div>
-        <div><input type="radio" name="option" value="2" id="option2" checked>
-        <label for="option2"></label>
+        <div class="radio 2"><label><input type="radio" value="2" id="2">
+        </label>
         </div>
-        <div><input type="radio" name="option" value="3" id="option3" checked>
-        <label for="option3"></label>
+        <div class="radio 3"><label><input type="radio" value="3" id="3">
+        </label>
         </div>
-    </form>
+        <button type="submit" class="submitQuestion">Submit</button>
+    
 </div>
+<div class="feedback">
+    <button type="submit" class="nextQuestion">Submit</button>
+</div>
+<div class="finalSection"></div>
 <div class="footer">
     <ul>
         <li>Question <span class="questionNumber">0</span>/10</li>
         <li>Score: <span class="score">0</span></li>
     </ul>
 </div>
+</form>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="index.js"></script>
