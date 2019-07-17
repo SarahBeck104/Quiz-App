@@ -118,6 +118,11 @@ const STORE = [
 
 ]
 
+function startPage() {
+    $(".questionAnswer").hide();
+    $(".feedback").hide();
+    $(".finalSection").hide();
+}
 
 //initial values so they can be incremented later
 const questionNumber = 0;
@@ -157,7 +162,8 @@ function generateQuestion() {
 // to get 1 higher question number it should increment ++ each time the next question is generated
 // for loop, max length of the amount of questions, 
 function incrementQuestionNumber() {
-
+for (i == true; i <= STORE.length; i++) {
+if }
 };
 
 //increment score
@@ -204,7 +210,6 @@ function runAnswerFeedback() {
             
             } else {
                 questionFeedbackIncorrect();
-                // do I need anything else here?
             };
             // if the current question number is 10, then on submission the final feedback page will be displayed
             if (questionNumber === 10){
@@ -292,18 +297,17 @@ function nextQuestion() {
         
         //run quiz functions
         function createQuizApp() {
-            renderQuizQuestion();
-            startQuiz();
-            startNewQuiz();
-            nextQuestion();
-            runAnswerFeedback();
+            startPage();
+           // startQuiz();
+           // generateQuestion();
+           // renderQuizQuestion();
+           // startQuiz();
+           // startNewQuiz();
+           // nextQuestion();
+           // runAnswerFeedback();
                         
         };
          
-    
-        
-
-}
-
+ 
 //call main function
-$(createQuizApp);
+$(createQuizApp);   
