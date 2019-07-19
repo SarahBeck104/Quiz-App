@@ -146,11 +146,11 @@ $(".startQuizButton").on('click', function() {
 // attaching question div with the info from that question
 function generateQuestion() {
     $(".startQuizButton").on('click',function() {
-        $('.question').append(STORE[questionNumber].question);
-        $('.radio #0').append(STORE[questionNumber].answers[0]);
-        $('.radio #1').append(STORE[questionNumber].answers[1]);
-        $('.radio #2').append(STORE[questionNumber].answers[2]);
-        $('.radio #3').append(STORE[questionNumber].answers[3]);
+        $('.question').append(STORE[questionNumber].question); //why is it defaulting to the input? a typo? you can also select all of them
+        $('.radio 0').append(STORE[questionNumber].answers[0]);
+        $('.radio 1').append(STORE[questionNumber].answers[1]);
+        $('.radio 2').append(STORE[questionNumber].answers[2]);
+        $('.radio 3').append(STORE[questionNumber].answers[3]);
         
         incrementQuestionNumber();
         incrementScore();
@@ -162,8 +162,11 @@ function generateQuestion() {
 // to get 1 higher question number it should increment ++ each time the next question is generated
 // for loop, max length of the amount of questions, 
 function incrementQuestionNumber() {
-for (i == true; i <= STORE.length; i++) {
-if }
+for (i = 0; i <= STORE.length; i++) {
+// each time 'submit' is hit, increment question number
+$('.submitQuestion').on('click', function() {
+    $('.questionNumber').html(parseInt($('.questionNumber').html(), 10)+1)
+})
 };
 
 //increment score
@@ -196,7 +199,7 @@ function runAnswerFeedback() {
         $(".questionAnswer").hide();
         $(".feedback").show();
 
-        if ( ($('input[type=radio']:checked.length >0)){
+        if ( ($('input[type=radio]:checked').length >0)) {
             questionNumber += 1;
 
             //variables to compare the selected answer with the correct answer
@@ -217,7 +220,7 @@ function runAnswerFeedback() {
                 document.getElementsByClassName(".submitQuestion")[0].innerHTML = `See Quiz Results`;
             }
             else {
-                $(.questionAnswer, .feedback).toggleClass('hide');
+                $('.questionAnswer', '.feedback').toggleClass('hide');
             }
         }
         else {
@@ -248,11 +251,11 @@ function feedbackIfIncorrect() {
 //what happens when the user clicks next question button
 // hides feedback and shows the question section for the next question
 function nextQuestion() {
-    $(.nextQuestion).on('click', function(){
+    $('.nextQuestion').on('click', function(){
         if (questionNumber === 10) {
-            $(.finalSection, .feedback).toggleClass('hide');
+            $('.finalSection', '.feedback').toggleClass('hide');
             $('input[type=radio]').prop('checked', false);
-            $(.score).toggleClass('score');
+            $('.score').toggleClass('score');
 
         }
         else {
@@ -260,10 +263,10 @@ function nextQuestion() {
             $('input[type=radio]').prop('checked', false);
 
             $('.question').append(STORE[questionNumber].question);
-            $('.radio #0').append(STORE[questionNumber].answers[0]);
-            $('.radio #1').append(STORE[questionNumber].answers[1]);
-            $('.radio #2').append(STORE[questionNumber].answers[2]);
-            $('.radio #3').append(STORE[questionNumber].answers[3]);
+            $('.radio 0').append(STORE[questionNumber].answers[0]);
+            $('.radio 1').append(STORE[questionNumber].answers[1]);
+            $('.radio 2').append(STORE[questionNumber].answers[2]);
+            $('.radio 3').append(STORE[questionNumber].answers[3]);
     
         };
 
@@ -298,9 +301,9 @@ function nextQuestion() {
         //run quiz functions
         function createQuizApp() {
             startPage();
-           // startQuiz();
-           // generateQuestion();
-           // renderQuizQuestion();
+            startQuiz();
+            generateQuestion();
+           // renderQuizQuestion(); (not defined...)
            // startQuiz();
            // startNewQuiz();
            // nextQuestion();
@@ -310,4 +313,4 @@ function nextQuestion() {
          
  
 //call main function
-$(createQuizApp);   
+$(createQuizApp); 
