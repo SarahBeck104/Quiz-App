@@ -328,7 +328,7 @@ function nextQuestion() {
             runAnswerFeedback();
                         
         };
-         
+}    
  
 //call main function
 $(createQuizApp);  
