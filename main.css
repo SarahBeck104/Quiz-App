@@ -1,6 +1,4 @@
 * {
-    margin: 0px;
-    padding: 0px;
     box-sizing: border-box;
   }
   
@@ -10,6 +8,13 @@
   display: flex;
   flex-flow: row wrap;
   align-items: center;
+  padding: 15px;
+  font-size: 18px;
+  text-shadow: 0 1px 0 black;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   }
   
   div {
@@ -48,11 +53,19 @@
   .questionAnswer {
       align-self: center;
   }
+
+  input[type="radio"] {
+    -webkit-box-shadow: 0px 0px 15px 3px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 15px 3px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 15px 3px rgba(0,0,0,0.75);
+    border: 5px solid white; 
+    border-radius: 5px;
+  }
  
   .startQuizButton {
       background: url("https://www.pngkey.com/png/detail/67-678959_hockey-puck-png-clipart-hockey-puck-transparent-background.png") no-repeat;
       cursor: pointer;
-      color: white;
+      color: black;
       padding: 5px;
       margin: 10px;
       border-radius: 10px;
@@ -63,7 +76,8 @@
   }
   
   .footer {
-  align-self: flex-end;
+  text-align: center;
+  position: relative;
   }
 
   @media screen and (max-width: 800px) {
