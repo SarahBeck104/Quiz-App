@@ -331,4 +331,5 @@ function incrementQuestionNumber() {
 
 }
     //call main function
-    $(createQuizApp);
+    createQuizApp();
+
