@@ -50,6 +50,12 @@
       margin-top: 100px;
   }
 
+  .image {
+      width: 130px;
+      align-self: center;
+      box-shadow: 0 1px 0 black;
+  }
+
   .questionAnswer {
       align-self: center;
   }
