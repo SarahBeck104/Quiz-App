@@ -161,7 +161,7 @@ $(".startQuizButton").on('click', function() {
 // get question from array by referencing the next question number
 // attaching question div with the info from that question
 function generateQuestion() {
-    $(".startQuizButton").on('click',function() {
+    $(".startQuizButton").on('click', function() {
         $('.question').append(STORE[questionNumber].question); //why is it defaulting to the input? a typo? you can also select all of them
         $('.radio 0').append(STORE[questionNumber].answers[0]);
         $('.radio 1').append(STORE[questionNumber].answers[1]);
@@ -213,7 +213,7 @@ function correctAnswerMatch(){
 // starts when submit is hit when 1 radio button is selected
 
 function runAnswerFeedback() {
-    $(".form").on('submit', function(event) {
+    $(".form").on('click', function(event) {
         event.preventDefault();
         $(".questionAnswer").hide();
         $(".feedback").show();
