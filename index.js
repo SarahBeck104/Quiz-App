@@ -184,6 +184,7 @@ function incrementQuestionNumber() {
             $('.questionNumber').html(parseInt($('.questionNumber').html(), 10) + 1)
         })
     };
+};
 
     //increment score and changes the display
     // to get 1 higher score it should increment ++ each time the "next" button is pressed AFTER a "correct feedback"
@@ -326,10 +327,10 @@ function incrementQuestionNumber() {
         startNewQuiz();
         nextQuestion();
         runAnswerFeedback();
-
     };
 
-}
-    //call main function
+
+//call main function
 createQuizApp();
+
 
