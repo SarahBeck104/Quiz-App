@@ -190,7 +190,7 @@ function incrementQuestionNumber() {
     // to get 1 higher score it should increment ++ each time the "next" button is pressed AFTER a "correct feedback"
     function incrementScore(score) {
         score += score;
-        score.text(score);
+//        score.text(score);
     };
 
 
