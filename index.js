@@ -192,7 +192,7 @@ function incrementQuestionNumber() {
         console.log(score)
         score++
         console.log(score)
-        $('.score').text(${score++})
+        $('.score').text(score++)
     };
 
 
