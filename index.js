@@ -188,11 +188,11 @@ function incrementQuestionNumber() {
 
     //increment score and changes the display
     // to get 1 higher score it should increment ++ each time the "next" button is pressed AFTER a "correct feedback"
-    function incrementScore(score) {
+    function incrementScore() {
         console.log(score)
-        score += score;
+        score++
         console.log(score)
-        score.text(score);
+        $('.score').text(${score++})
     };
 
 
