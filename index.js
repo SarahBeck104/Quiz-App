@@ -142,7 +142,7 @@ function startPage() {
 
 //initial values so they can be incremented later
 const questionNumber = 0;
-const score = 0;
+let score = 0;
 
 let selectedRadioID;
 
@@ -194,6 +194,8 @@ function incrementQuestionNumber() {
         console.log(score)
         $('.score').text(score++)
     };
+
+    // start tomorrow's ticket with the problem "Uncaught TypeError: Assignment to constant variable." after clicking start quiz
 
 
     //this function will get the value of the id of answer selection
@@ -334,5 +336,3 @@ function incrementQuestionNumber() {
 
 //call main function
 createQuizApp();
-
-
