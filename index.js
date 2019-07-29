@@ -134,20 +134,23 @@ const STORE = [
 
 ]
 
+//WORKING PROPERLY
 function startPage() {
     $(".questionAnswer").hide();
     $(".feedback").hide();
     $(".finalSection").hide();
+    $('.questionNumber').html(questionNumber + "/" + STORE.length)
 }
 
 //initial values so they can be incremented later
-const questionNumber = 0;
+let questionNumber = 0;
 let score = 0;
-
+let testMatch;
 let selectedRadioID;
 
 
 //start quiz: when quiz is started, hide start div, unhide quiz form div/append quiz form info to empty div
+//WORKING PROPERLY
 function startQuiz() {
     $(".startQuizButton").on('click', function () {
         $(".main").hide();
@@ -162,14 +165,18 @@ function startQuiz() {
 // attaching question div with the info from that question
 function generateQuestion() {
     $(".startQuizButton").on('click', function () {
-        $('.question').append(STORE[questionNumber].question); //why is it defaulting to the input? a typo? you can also select all of them
-        $('.radio 0').append(STORE[questionNumber].answers[0]);
-        $('.radio 1').append(STORE[questionNumber].answers[1]);
-        $('.radio 2').append(STORE[questionNumber].answers[2]);
-        $('.radio 3').append(STORE[questionNumber].answers[3]);
+    $('.question').append(STORE[questionNumber].question);
+    $('.radio0').append(STORE[questionNumber].answers[0]);
+    $('.radio1').append(STORE[questionNumber].answers[1]);
+    $('.radio2').append(STORE[questionNumber].answers[2]);
+    $('.radio3').append(STORE[questionNumber].answers[3]);
+
+
+        console.log("questionNumber: ");
+        console.log(questionNumber);
 
         incrementQuestionNumber();
-        incrementScore();
+        //incrementScore();
     });
 };
 
@@ -177,17 +184,22 @@ function generateQuestion() {
 //increment question number
 // to get 1 higher question number it should increment ++ each time the next question is generated
 // for loop, max length of the amount of questions
+//WORKING PROPERLY
 function incrementQuestionNumber() {
-    for (i = 0; i <= STORE.length; i++) {
+    $('.questionNumber').html(questionNumber + "/" + STORE.length)
+
+
+/*    for (i = 0; i <= STORE.length; i++) {
         // each time 'submit' is hit, increment question number
         $('.submitQuestion').on('click', function () {
             $('.questionNumber').html(parseInt($('.questionNumber').html(), 10) + 1)
         })
-    };
+    };*/
 };
 
     //increment score and changes the display
     // to get 1 higher score it should increment ++ each time the "next" button is pressed AFTER a "correct feedback"
+
     function incrementScore() {
         console.log(score)
         score++
@@ -209,37 +221,48 @@ function incrementQuestionNumber() {
 
     // gets correct answer for question
     function correctAnswerMatch() {
-        let x = questionNumber - 1;
-        let testMatch = STORE[x].correctAnswer;
+       //before: let x = questionNumber - 1;
+        //before: let testMatch = STORE[x].correctAnswer;
+        let testMatch = STORE[questionNumber].correctAnswer;
         return testMatch;
     };
+
 
     //on submit run feedback for answer selected
     // starts when submit is hit when 1 radio button is selected
 
     function runAnswerFeedback() {
-        $(".form").on('click', function (event) {
+        //before :         $(".form").on('click', function (event) {
+
+        $(".submitQuestion").on('click', function (event) {
             event.preventDefault();
             $(".questionAnswer").hide();
             $(".feedback").show();
 
             if (($('input[type=radio]:checked').length > 0)) {
-                questionNumber += 1;
+                //questionNumber += 1;
+
+                answerSelectedRadioID();
+                correctAnswerMatch();
 
                 //variables to compare the selected answer with the correct answer
-                let selection = selectedRadioID()
-                let answernum = testMatch()
+                let selection = selectedRadioID;
+                let answernum = testMatch;
                 if (selection === answernum) {
-                    questionFeedbackCorrect();
-                    //increments
-                    score += 1;
+                    feedbackIfCorrect();
+                    //increments score
+//                    score += 1;
+                    incrementScore();
                     // need function calls here for updating the progress and score
+                    $(".feedback").toggleClass('show');
+                    //WHY DOES THE "NEXT QUESTION" NOT SHOW UP IN FEEDBACK PAGE? WHY DOES IT NOT CHECK FOR
+                    //INCORRECT? 
 
                 } else {
-                    questionFeedbackIncorrect();
+                    feedbackIfIncorrect();
                 };
                 // if the current question number is 10, then on submission the final feedback page will be displayed
-                if (questionNumber === 10) {
+               /* if (questionNumber === 10) {
                     $('.questionAnswer, .feedback').toggleClass('hide');
                     document.getElementsByClassName(".submitQuestion")[0].innerHTML = `See Quiz Results`;
                 }
@@ -249,26 +272,25 @@ function incrementQuestionNumber() {
             }
             else {
                 alert("Please select an answer");
-            }
-        });
+            }*/
+        };
+    });
     };
-
 
     //feedback for correct answer
     // starts when submit is pressed with 1 radio button selected
     // need... some kind of logic, that if correctAnswer is selected, this feedback div is appended to an empty div
     function feedbackIfCorrect() {
-        let x = questionNumber - 1;
-        $(".feedback").html(`${STORE[x].questionFeedbackCorrect}`);
+        $(".feedback").html(`${STORE[questionNumber].questionFeedbackCorrect}`);
     }
+
 
     //feeback for incorrect answer
     // starts when submit is pressed with 1 radio button selected
     // need... some kind of logic? that if correctAnswer is NOT the 1 selected, this feedback div is appended 
     // to an empty div
     function feedbackIfIncorrect() {
-        let x = questionNumber - 1;
-        $(".feedback").html(`${STORE[x].questionFeedbackIncorrect}`);
+        $(".feedback").html(`${STORE[questionNumber].questionFeedbackIncorrect}`);
 
     }
 
@@ -276,23 +298,29 @@ function incrementQuestionNumber() {
     // hides feedback and shows the question section for the next question
     function nextQuestion() {
         $('.nextQuestion').on('click', function () {
-            if (questionNumber === 10) {
+//            console.log ("submitquestion: " + $('.submitQuestion'));
+                $('.question').append(STORE[questionNumber].question);
+                $('.radio0').append(STORE[questionNumber].answers[0]);
+                $('.radio1').append(STORE[questionNumber].answers[1]);
+                $('.radio2').append(STORE[questionNumber].answers[2]);
+                $('.radio3').append(STORE[questionNumber].answers[3]);
+          /*  if (questionNumber === '10') {
                 $('.finalSection', '.feedback').toggleClass('hide');
                 $('input[type=radio]').prop('checked', false);
                 $('.score').toggleClass('score');
 
             }
             else {
-                $('.questionAnswer, .feedback').toggleClass('hide');
-                $('input[type=radio]').prop('checked', false);
+                $('.feedback').toggleClass('hide');
+                //$('input[type=radio]').prop('checked', false);
 
                 $('.question').append(STORE[questionNumber].question);
-                $('.radio 0').append(STORE[questionNumber].answers[0]);
-                $('.radio 1').append(STORE[questionNumber].answers[1]);
-                $('.radio 2').append(STORE[questionNumber].answers[2]);
-                $('.radio 3').append(STORE[questionNumber].answers[3]);
+                $('.radio0').append(STORE[questionNumber].answers[0]);
+                $('.radio1').append(STORE[questionNumber].answers[1]);
+                $('.radio2').append(STORE[questionNumber].answers[2]);
+                $('.radio3').append(STORE[questionNumber].answers[3]);
 
-            };
+            }; */
 
 
         });
@@ -312,10 +340,10 @@ function incrementQuestionNumber() {
             $('.finalSection').toggleClass('hide');
             questionNumber = 0;
             document.getElementsByClassName("question")[0].innerHTML = ``;
-            document.getElementsByClassName("radio 0")[0].innerHTML = ``;
-            document.getElementsByClassName("radio 1")[0].innerHTML = ``;
-            document.getElementsByClassName("radio 2")[0].innerHTML = ``;
-            document.getElementsByClassName("radio 3")[0].innerHTML = ``;
+            document.getElementsByClassName("radio0")[0].innerHTML = ``;
+            document.getElementsByClassName("radio1")[0].innerHTML = ``;
+            document.getElementsByClassName("radio2")[0].innerHTML = ``;
+            document.getElementsByClassName("radio3")[0].innerHTML = ``;
             document.getElementsByClassName("submitQuestion")[0].innerHTML = `Next Question`;
             $('.score').toggleClass('showScore');
 
@@ -327,10 +355,11 @@ function incrementQuestionNumber() {
         startPage();
         startQuiz();
         generateQuestion();
-        startQuiz();
-        startNewQuiz();
+        runAnswerFeedback(); //?
+        // startQuiz(); (duplicate, get rid of?)
+        //startNewQuiz();
         nextQuestion();
-        runAnswerFeedback();
+        //runAnswerFeedback();
     };
 
 
