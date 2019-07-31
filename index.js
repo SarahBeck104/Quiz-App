@@ -338,6 +338,7 @@ function incrementQuestionNumber() {
         $('.restart').on('click', function () {
 
             $('.finalSection').toggleClass('hide');
+            $(".questionAnswer").show();
             questionNumber = 0;
             document.getElementsByClassName("question")[0].innerHTML = ``;
             document.getElementsByClassName("radio0")[0].innerHTML = ``;
