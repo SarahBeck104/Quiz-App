@@ -9,11 +9,9 @@ const STORE = [
             'Ball'
         ],
         correctAnswer: 'Puck',
-        questionFeedbackCorrect: 'Great! You choose ${correctAnswer}, and that was the correct answer!',
-        questionFeedbackIncorrect: 'Sorry! The correct answer was ${correctAnswer}'
-
+        questionFeedbackCorrect: `Great! You choose ${STORE[0].correctAnswer}, and that was the correct answer!`,
+        questionFeedbackIncorrect: `Sorry! The correct answer was ${STORE[0].correctAnswer}`
     },
-
     {
         question: 'How does a play start during a hockey game?',
         answers: [
@@ -23,10 +21,9 @@ const STORE = [
             'Face off'
         ],
         correctAnswer: 'Face off',
-        questionFeedbackCorrect: 'Great! You choose ${correctAnswer}, and that was the correct answer!',
-        questionFeedbackIncorrect: 'Sorry! The correct answer was ${correctAnswer}'
+        questionFeedbackCorrect: `Great! You choose ${STORE[0].correctAnswer}, and that was the correct answer!`,
+        questionFeedbackIncorrect: `Sorry! The correct answer was ${STORE[0].correctAnswer}`
     },
-
     {
         question: 'What is the most critical gear for playing hockey?',
         answers: [
@@ -36,10 +33,9 @@ const STORE = [
             'Jersey, stick, shoulder pads'
         ],
         correctAnswer: 'Helmet with face mask, elbow and knee pads, skates',
-        questionFeedbackCorrect: 'Awesome! You choose ${correctAnswer}, and that was the correct answer!',
-        questionFeedbackIncorrect: 'Sorry! The correct answer was ${correctAnswer}'
+        questionFeedbackCorrect: `Awesome! You choose ${STORE[0].correctAnswer}, and that was the correct answer!`,
+        questionFeedbackIncorrect: `Sorry! The correct answer was ${STORE[0].correctAnswer}`
     },
-
     {
         question: 'What is an interference?',
         answers: [
@@ -49,10 +45,9 @@ const STORE = [
             'When a player stands in front of the goalie'
         ],
         correctAnswer: 'When a player uses his body to impede the progress of an opponent with no effort to play the puck',
-        questionFeedbackCorrect: 'Fantastic! You choose ${correctAnswer}, and that was the correct answer!',
-        questionFeedbackIncorrect: 'Sorry! The correct answer was ${correctAnswer}'
+        questionFeedbackCorrect: `Fantastic! You choose ${STORE[0].correctAnswer}, and that was the correct answer!`,
+        questionFeedbackIncorrect: `Sorry! The correct answer was ${STORE[0].correctAnswer}`
     },
-
     {
         question: 'What is icing?',
         answers: [
@@ -62,10 +57,9 @@ const STORE = [
             'When a player slams another player into the ice'
         ],
         correctAnswer: 'When a player shoots the puck from behind the center red line, all the way across the opposing team’s goal line without the puck being touched',
-        questionFeedbackCorrect: 'Great! ${correctAnswer} was the correct answer!',
-        questionFeedbackIncorrect: 'Sorry! The correct answer was ${correctAnswer}'
+        questionFeedbackCorrect: `Great! ${STORE[0].correctAnswer} was the correct answer!`,
+        questionFeedbackIncorrect: `Sorry! The correct answer was ${STORE[0].correctAnswer}`
     },
-
     {
         question: 'What hand should you use as your top hand on the hockey stick?',
         answers: [
@@ -75,10 +69,9 @@ const STORE = [
             'Non-dominant foot'
         ],
         correctAnswer: 'Dominant hand',
-        questionFeedbackCorrect: 'Nice one! You choose ${correctAnswer}, and that was the correct answer!',
-        questionFeedbackIncorrect: 'Sorry! The correct answer was ${correctAnswer}'
+        questionFeedbackCorrect: `Nice one! You choose ${STORE[0].correctAnswer}, and that was the correct answer!`,
+        questionFeedbackIncorrect: `Sorry! The correct answer was ${STORE[0].correctAnswer}`
     },
-
     {
         question: 'What are the four main types of shots?',
         answers: [
@@ -88,10 +81,9 @@ const STORE = [
             'Elbow shot, knee shot, wrist shot, hand shot'
         ],
         correctAnswer: 'Slap shot, wrist shot, snap shot, backhand shot',
-        questionFeedbackCorrect: 'Cool! ${correctAnswer} was the correct answer!',
-        questionFeedbackIncorrect: 'Sorry! The correct answer was ${correctAnswer}'
+        questionFeedbackCorrect: `Cool! ${STORE[0].correctAnswer} was the correct answer!`,
+        questionFeedbackIncorrect: `Sorry! The correct answer was ${STORE[0].correctAnswer}`
     },
-
     {
         question: 'What is the most important skill as a hockey player?',
         answers: [
@@ -101,10 +93,9 @@ const STORE = [
             'Skating skills'
         ],
         correctAnswer: 'Skating skills',
-        questionFeedbackCorrect: 'Nice! You choose ${correctAnswer}, and that was the correct answer!',
-        questionFeedbackIncorrect: 'Sorry! The correct answer was ${correctAnswer}'
+        questionFeedbackCorrect: `Nice! You choose ${STORE[0].correctAnswer}, and that was the correct answer!`,
+        questionFeedbackIncorrect: `Sorry! The correct answer was ${STORE[0].correctAnswer}`
     },
-
     {
         question: 'What are the six main positions on a hockey team?',
         answers: [
@@ -114,10 +105,9 @@ const STORE = [
             '2 forwards, 2 defencemen, 2 goalies'
         ],
         correctAnswer: '3 forwards, 2 defencemen, 1 goalie',
-        questionFeedbackCorrect: 'Good job! ${correctAnswer} was the correct answer!',
-        questionFeedbackIncorrect: 'Sorry! The correct answer was ${correctAnswer}'
+        questionFeedbackCorrect: `Good job! ${STORE[0].correctAnswer} was the correct answer!`,
+        questionFeedbackIncorrect: `Sorry! The correct answer was ${STORE[0].correctAnswer}`
     },
-
     {
         question: 'How many periods are in a hockey game?',
         answers: [
@@ -127,11 +117,9 @@ const STORE = [
             '6'
         ],
         correctAnswer: '3',
-        questionFeedbackCorrect: 'Fantastic! You choose ${correctAnswer} periods, and that was correct!',
-        questionFeedbackIncorrect: 'Sorry! The correct answer was ${correctAnswer}'
+        questionFeedbackCorrect: `Fantastic! You choose ${STORE[0].correctAnswer} periods, and that was correct!`,
+        questionFeedbackIncorrect: `Sorry! The correct answer was ${STORE[0].correctAnswer}`
     }
-
-
 ]
 
 //WORKING PROPERLY
@@ -148,16 +136,13 @@ let score = 0;
 let testMatch;
 let selectedRadioID;
 
-
 //start quiz: when quiz is started, hide start div, unhide quiz form div/append quiz form info to empty div
 //WORKING PROPERLY
 function startQuiz() {
     $(".startQuizButton").on('click', function () {
         $(".main").hide();
         $(".questionAnswer").show();
-
     });
-
 };
 
 // generate question
@@ -171,15 +156,11 @@ function generateQuestion() {
     $('.radio2').append(STORE[questionNumber].answers[2]);
     $('.radio3').append(STORE[questionNumber].answers[3]);
 
-
         console.log("questionNumber: ");
         console.log(questionNumber);
-
         incrementQuestionNumber();
-        //incrementScore();
     });
 };
-
 
 //increment question number
 // to get 1 higher question number it should increment ++ each time the next question is generated
@@ -187,61 +168,36 @@ function generateQuestion() {
 //WORKING PROPERLY
 function incrementQuestionNumber() {
     $('.questionNumber').html(questionNumber + "/" + STORE.length)
-
-
-/*    for (i = 0; i <= STORE.length; i++) {
-        // each time 'submit' is hit, increment question number
-        $('.submitQuestion').on('click', function () {
-            $('.questionNumber').html(parseInt($('.questionNumber').html(), 10) + 1)
-        })
-    };*/
 };
 
-    //increment score and changes the display
-    // to get 1 higher score it should increment ++ each time the "next" button is pressed AFTER a "correct feedback"
+//increment score and changes the display
+// to get 1 higher score it should increment ++ each time the "next" button is pressed AFTER a "correct feedback"
+function incrementScore() {
+    score++
+    $('.score').text(score++)
+};
 
-    function incrementScore() {
-        console.log(score)
-        score++
-        console.log(score)
-        $('.score').text(score++)
-    };
+//this function will get the value of the id of answer selection
+function answerSelectedRadioID() {
+    let selectedRadioID = $('input[type=radio]:checked').attr('id');
+    return selectedRadioID;
+};
 
-    // start tomorrow's ticket with the problem "Uncaught TypeError: Assignment to constant variable." after clicking start quiz
+// gets correct answer for question
+function correctAnswerMatch() {
+    let testMatch = STORE[questionNumber].correctAnswer;
+    return testMatch;
+};
 
-
-    //this function will get the value of the id of answer selection
-    function answerSelectedRadioID() {
-        let selectedRadioID = $('input[type=radio]:checked').attr('id');
-        return selectedRadioID;
-    };
-
-
-
-
-    // gets correct answer for question
-    function correctAnswerMatch() {
-       //before: let x = questionNumber - 1;
-        //before: let testMatch = STORE[x].correctAnswer;
-        let testMatch = STORE[questionNumber].correctAnswer;
-        return testMatch;
-    };
-
-
-    //on submit run feedback for answer selected
-    // starts when submit is hit when 1 radio button is selected
-
-    function runAnswerFeedback() {
-        //before :         $(".form").on('click', function (event) {
-
-        $(".submitQuestion").on('click', function (event) {
-            event.preventDefault();
-            $(".questionAnswer").hide();
-            $(".feedback").show();
+//on submit run feedback for answer selected
+// starts when submit is hit when 1 radio button is selected
+function runAnswerFeedback() {
+    $(".submitQuestion").on('click', function (event) {
+        event.preventDefault();
+        $(".questionAnswer").hide();
+        $(".feedback").show();
 
             if (($('input[type=radio]:checked').length > 0)) {
-                //questionNumber += 1;
-
                 answerSelectedRadioID();
                 correctAnswerMatch();
 
@@ -251,103 +207,61 @@ function incrementQuestionNumber() {
                 if (selection === answernum) {
                     feedbackIfCorrect();
                     //increments score
-//                    score += 1;
                     incrementScore();
                     // need function calls here for updating the progress and score
                     $(".feedback").toggleClass('show');
                     //WHY DOES THE "NEXT QUESTION" NOT SHOW UP IN FEEDBACK PAGE? WHY DOES IT NOT CHECK FOR
                     //INCORRECT? 
-
                 } else {
                     feedbackIfIncorrect();
                 };
-                // if the current question number is 10, then on submission the final feedback page will be displayed
-               /* if (questionNumber === 10) {
-                    $('.questionAnswer, .feedback').toggleClass('hide');
-                    document.getElementsByClassName(".submitQuestion")[0].innerHTML = `See Quiz Results`;
-                }
-                else {
-                    $('.questionAnswer', '.feedback').toggleClass('hide');
-                }
-            }
-            else {
-                alert("Please select an answer");
-            }*/
         };
     });
     };
 
     //feedback for correct answer
     // starts when submit is pressed with 1 radio button selected
-    // need... some kind of logic, that if correctAnswer is selected, this feedback div is appended to an empty div
+    // need logic, that if correctAnswer is selected, this feedback div is appended to an empty div
     function feedbackIfCorrect() {
         $(".feedback").html(`${STORE[questionNumber].questionFeedbackCorrect}`);
-    }
-
+    };
 
     //feeback for incorrect answer
     // starts when submit is pressed with 1 radio button selected
-    // need... some kind of logic? that if correctAnswer is NOT the 1 selected, this feedback div is appended 
+    // need logic, that if correctAnswer is NOT the 1 selected, this feedback div is appended 
     // to an empty div
     function feedbackIfIncorrect() {
         $(".feedback").html(`${STORE[questionNumber].questionFeedbackIncorrect}`);
-
-    }
+    };
 
     //what happens when the user clicks next question button
     // hides feedback and shows the question section for the next question
     function nextQuestion() {
         $('.nextQuestion').on('click', function () {
-//            console.log ("submitquestion: " + $('.submitQuestion'));
                 $('.question').append(STORE[questionNumber].question);
                 $('.radio0').append(STORE[questionNumber].answers[0]);
                 $('.radio1').append(STORE[questionNumber].answers[1]);
                 $('.radio2').append(STORE[questionNumber].answers[2]);
                 $('.radio3').append(STORE[questionNumber].answers[3]);
-          /*  if (questionNumber === '10') {
-                $('.finalSection', '.feedback').toggleClass('hide');
-                $('input[type=radio]').prop('checked', false);
-                $('.score').toggleClass('score');
-
-            }
-            else {
-                $('.feedback').toggleClass('hide');
-                //$('input[type=radio]').prop('checked', false);
-
-                $('.question').append(STORE[questionNumber].question);
-                $('.radio0').append(STORE[questionNumber].answers[0]);
-                $('.radio1').append(STORE[questionNumber].answers[1]);
-                $('.radio2').append(STORE[questionNumber].answers[2]);
-                $('.radio3').append(STORE[questionNumber].answers[3]);
-
-            }; */
-
-
         });
 
     };
 
-
-
-
-
-    //start a new quiz function: when clicked will reload page to start quiz over
-    // will only start when the "start over" button from the quizFinale feedback page is pressed, so
-    // returns to welcome 
-    function startNewQuiz() {
-        $('.restart').on('click', function () {
-
-            $('.finalSection').toggleClass('hide');
-            $(".questionAnswer").show();
-            questionNumber = 0;
-            document.getElementsByClassName("question")[0].innerHTML = ``;
-            document.getElementsByClassName("radio0")[0].innerHTML = ``;
-            document.getElementsByClassName("radio1")[0].innerHTML = ``;
-            document.getElementsByClassName("radio2")[0].innerHTML = ``;
-            document.getElementsByClassName("radio3")[0].innerHTML = ``;
-            document.getElementsByClassName("submitQuestion")[0].innerHTML = `Next Question`;
-            $('.score').toggleClass('showScore');
-
+//start a new quiz function: when clicked will reload page to start quiz over
+// will only start when the "start over" button from the quizFinale feedback page is pressed, so
+// returns to welcome 
+function startNewQuiz() {
+    $('.restart').on('click', function () {
+        $('.finalSection').toggleClass('hide');
+        $(".questionAnswer").show();
+        questionNumber = 0;
+        document.getElementsByClassName("question")[0].innerHTML = ``;
+        document.getElementsByClassName("radio0")[0].innerHTML = ``;
+        document.getElementsByClassName("radio1")[0].innerHTML = ``;
+        document.getElementsByClassName("radio2")[0].innerHTML = ``;
+        document.getElementsByClassName("radio3")[0].innerHTML = ``;
+        document.getElementsByClassName("submitQuestion")[0].innerHTML = `Next Question`;
+        $('.score').toggleClass('showScore');
         });
     };
 
@@ -356,11 +270,9 @@ function incrementQuestionNumber() {
         startPage();
         startQuiz();
         generateQuestion();
-        runAnswerFeedback(); //?
-        // startQuiz(); (duplicate, get rid of?)
-        //startNewQuiz();
+        runAnswerFeedback(); 
         nextQuestion();
-        //runAnswerFeedback();
+        //startNewQuiz();
     };
 
 
