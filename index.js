@@ -1,3 +1,5 @@
+$(document).ready(function(){
+
 //STORE
 const STORE = [
     {
@@ -278,3 +280,4 @@ function startNewQuiz() {
 
 //call main function
 createQuizApp();
+});
