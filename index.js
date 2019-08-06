@@ -11,8 +11,9 @@ const STORE = [
             'Ball'
         ],
         correctAnswer: 'Puck',
-        questionFeedbackCorrect: `Great! You choose ${STORE[0].correctAnswer}, and that was the correct answer!`,
-        questionFeedbackIncorrect: `Sorry! The correct answer was ${STORE[0].correctAnswer}`
+        questionFeedbackCorrect: `Great! You choose ${this.correctAnswer}, and that was the correct answer!`,
+        questionFeedbackIncorrect: `Sorry! The correct answer was ${this.correctAnswer}`
+
     },
     {
         question: 'How does a play start during a hockey game?',
@@ -23,8 +24,8 @@ const STORE = [
             'Face off'
         ],
         correctAnswer: 'Face off',
-        questionFeedbackCorrect: `Great! You choose ${STORE[0].correctAnswer}, and that was the correct answer!`,
-        questionFeedbackIncorrect: `Sorry! The correct answer was ${STORE[0].correctAnswer}`
+        questionFeedbackCorrect: `Great! You choose ${this.correctAnswer}, and that was the correct answer!`,
+        questionFeedbackIncorrect: `Sorry! The correct answer was ${this.correctAnswer}`
     },
     {
         question: 'What is the most critical gear for playing hockey?',
@@ -35,8 +36,8 @@ const STORE = [
             'Jersey, stick, shoulder pads'
         ],
         correctAnswer: 'Helmet with face mask, elbow and knee pads, skates',
-        questionFeedbackCorrect: `Awesome! You choose ${STORE[0].correctAnswer}, and that was the correct answer!`,
-        questionFeedbackIncorrect: `Sorry! The correct answer was ${STORE[0].correctAnswer}`
+        questionFeedbackCorrect: `Awesome! You choose ${this.correctAnswer}, and that was the correct answer!`,
+        questionFeedbackIncorrect: `Sorry! The correct answer was ${this.correctAnswer}`
     },
     {
         question: 'What is an interference?',
@@ -47,8 +48,8 @@ const STORE = [
             'When a player stands in front of the goalie'
         ],
         correctAnswer: 'When a player uses his body to impede the progress of an opponent with no effort to play the puck',
-        questionFeedbackCorrect: `Fantastic! You choose ${STORE[0].correctAnswer}, and that was the correct answer!`,
-        questionFeedbackIncorrect: `Sorry! The correct answer was ${STORE[0].correctAnswer}`
+        questionFeedbackCorrect: `Fantastic! You choose ${this.correctAnswer}, and that was the correct answer!`,
+        questionFeedbackIncorrect: `Sorry! The correct answer was ${this.correctAnswer}`
     },
     {
         question: 'What is icing?',
@@ -59,8 +60,8 @@ const STORE = [
             'When a player slams another player into the ice'
         ],
         correctAnswer: 'When a player shoots the puck from behind the center red line, all the way across the opposing team’s goal line without the puck being touched',
-        questionFeedbackCorrect: `Great! ${STORE[0].correctAnswer} was the correct answer!`,
-        questionFeedbackIncorrect: `Sorry! The correct answer was ${STORE[0].correctAnswer}`
+        questionFeedbackCorrect: `Great! ${this.correctAnswer} was the correct answer!`,
+        questionFeedbackIncorrect: `Sorry! The correct answer was ${this.correctAnswer}`
     },
     {
         question: 'What hand should you use as your top hand on the hockey stick?',
@@ -71,8 +72,8 @@ const STORE = [
             'Non-dominant foot'
         ],
         correctAnswer: 'Dominant hand',
-        questionFeedbackCorrect: `Nice one! You choose ${STORE[0].correctAnswer}, and that was the correct answer!`,
-        questionFeedbackIncorrect: `Sorry! The correct answer was ${STORE[0].correctAnswer}`
+        questionFeedbackCorrect: `Nice one! You choose ${this.correctAnswer}, and that was the correct answer!`,
+        questionFeedbackIncorrect: `Sorry! The correct answer was ${this.correctAnswer}`
     },
     {
         question: 'What are the four main types of shots?',
@@ -83,8 +84,8 @@ const STORE = [
             'Elbow shot, knee shot, wrist shot, hand shot'
         ],
         correctAnswer: 'Slap shot, wrist shot, snap shot, backhand shot',
-        questionFeedbackCorrect: `Cool! ${STORE[0].correctAnswer} was the correct answer!`,
-        questionFeedbackIncorrect: `Sorry! The correct answer was ${STORE[0].correctAnswer}`
+        questionFeedbackCorrect: `Cool! ${this.correctAnswer} was the correct answer!`,
+        questionFeedbackIncorrect: `Sorry! The correct answer was ${this.correctAnswer}`
     },
     {
         question: 'What is the most important skill as a hockey player?',
@@ -95,8 +96,8 @@ const STORE = [
             'Skating skills'
         ],
         correctAnswer: 'Skating skills',
-        questionFeedbackCorrect: `Nice! You choose ${STORE[0].correctAnswer}, and that was the correct answer!`,
-        questionFeedbackIncorrect: `Sorry! The correct answer was ${STORE[0].correctAnswer}`
+        questionFeedbackCorrect: `Nice! You choose ${this.correctAnswer}, and that was the correct answer!`,
+        questionFeedbackIncorrect: `Sorry! The correct answer was ${this.correctAnswer}`
     },
     {
         question: 'What are the six main positions on a hockey team?',
@@ -107,8 +108,8 @@ const STORE = [
             '2 forwards, 2 defencemen, 2 goalies'
         ],
         correctAnswer: '3 forwards, 2 defencemen, 1 goalie',
-        questionFeedbackCorrect: `Good job! ${STORE[0].correctAnswer} was the correct answer!`,
-        questionFeedbackIncorrect: `Sorry! The correct answer was ${STORE[0].correctAnswer}`
+        questionFeedbackCorrect: `Good job! ${this.correctAnswer} was the correct answer!`,
+        questionFeedbackIncorrect: `Sorry! The correct answer was ${this.correctAnswer}`
     },
     {
         question: 'How many periods are in a hockey game?',
@@ -119,8 +120,8 @@ const STORE = [
             '6'
         ],
         correctAnswer: '3',
-        questionFeedbackCorrect: `Fantastic! You choose ${STORE[0].correctAnswer} periods, and that was correct!`,
-        questionFeedbackIncorrect: `Sorry! The correct answer was ${STORE[0].correctAnswer}`
+        questionFeedbackCorrect: `Fantastic! You choose ${this.correctAnswer} periods, and that was correct!`,
+        questionFeedbackIncorrect: `Sorry! The correct answer was ${this.correctAnswer}`
     }
 ]
 
@@ -274,7 +275,7 @@ function startNewQuiz() {
         generateQuestion();
         runAnswerFeedback(); 
         nextQuestion();
-        //startNewQuiz();
+        startNewQuiz();
     };
 
 
