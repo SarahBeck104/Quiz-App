@@ -11,10 +11,10 @@ const STORE = [
             'Ball'
         ],
         correctAnswer: 'Puck',
-        questionFeedbackCorrect: `Great! You choose ${this.correctAnswer}, and that was the correct answer!`,
-        questionFeedbackIncorrect: `Sorry! The correct answer was ${this.correctAnswer}`
-
+        questionFeedbackCorrect: `Great! You choose 'Puck', and that was the correct answer!`,
+        questionFeedbackIncorrect: `Sorry! The correct answer was 'Puck'`
     },
+        
     {
         question: 'How does a play start during a hockey game?',
         answers: [
@@ -24,9 +24,10 @@ const STORE = [
             'Face off'
         ],
         correctAnswer: 'Face off',
-        questionFeedbackCorrect: `Great! You choose ${this.correctAnswer}, and that was the correct answer!`,
-        questionFeedbackIncorrect: `Sorry! The correct answer was ${this.correctAnswer}`
+        questionFeedbackCorrect: `Great! You choose 'Face off', and that was the correct answer!`,
+        questionFeedbackIncorrect: `Sorry! The correct answer was 'Face off'.`
     },
+
     {
         question: 'What is the most critical gear for playing hockey?',
         answers: [
@@ -36,9 +37,10 @@ const STORE = [
             'Jersey, stick, shoulder pads'
         ],
         correctAnswer: 'Helmet with face mask, elbow and knee pads, skates',
-        questionFeedbackCorrect: `Awesome! You choose ${this.correctAnswer}, and that was the correct answer!`,
-        questionFeedbackIncorrect: `Sorry! The correct answer was ${this.correctAnswer}`
+        questionFeedbackCorrect: `Awesome! You choose 'Helmet with face mask, elbow and knee pads, skates', which is correct!`,
+        questionFeedbackIncorrect: `Sorry! The correct answer was 'Helmet with face mask, elbow and knee pads, skates'.`
     },
+
     {
         question: 'What is an interference?',
         answers: [
@@ -48,9 +50,10 @@ const STORE = [
             'When a player stands in front of the goalie'
         ],
         correctAnswer: 'When a player uses his body to impede the progress of an opponent with no effort to play the puck',
-        questionFeedbackCorrect: `Fantastic! You choose ${this.correctAnswer}, and that was the correct answer!`,
-        questionFeedbackIncorrect: `Sorry! The correct answer was ${this.correctAnswer}`
+        questionFeedbackCorrect: `Fantastic! You choose 'When a player uses his body to impede the progress of an opponent with no effort to play the puck', and that was the correct answer!`,
+        questionFeedbackIncorrect: `Sorry! The correct answer was 'When a player uses his body to impede the progress of an opponent with no effort to play the puck'.`
     },
+
     {
         question: 'What is icing?',
         answers: [
@@ -60,9 +63,10 @@ const STORE = [
             'When a player slams another player into the ice'
         ],
         correctAnswer: 'When a player shoots the puck from behind the center red line, all the way across the opposing team’s goal line without the puck being touched',
-        questionFeedbackCorrect: `Great! ${this.correctAnswer} was the correct answer!`,
-        questionFeedbackIncorrect: `Sorry! The correct answer was ${this.correctAnswer}`
+        questionFeedbackCorrect: `Great! 'When a player shoots the puck from behind the center red line, all the way across the opposing team’s goal line without the puck being touched' was the correct answer!`,
+        questionFeedbackIncorrect: `Sorry! The correct answer was 'When a player shoots the puck from behind the center red line, all the way across the opposing team’s goal line without the puck being touched'.`
     },
+
     {
         question: 'What hand should you use as your top hand on the hockey stick?',
         answers: [
@@ -72,9 +76,10 @@ const STORE = [
             'Non-dominant foot'
         ],
         correctAnswer: 'Dominant hand',
-        questionFeedbackCorrect: `Nice one! You choose ${this.correctAnswer}, and that was the correct answer!`,
-        questionFeedbackIncorrect: `Sorry! The correct answer was ${this.correctAnswer}`
+        questionFeedbackCorrect: `Nice one! You choose 'Dominant hand'', and that was the correct answer!`,
+        questionFeedbackIncorrect: `Sorry! The correct answer was 'Dominant hand'.`
     },
+
     {
         question: 'What are the four main types of shots?',
         answers: [
@@ -84,9 +89,10 @@ const STORE = [
             'Elbow shot, knee shot, wrist shot, hand shot'
         ],
         correctAnswer: 'Slap shot, wrist shot, snap shot, backhand shot',
-        questionFeedbackCorrect: `Cool! ${this.correctAnswer} was the correct answer!`,
-        questionFeedbackIncorrect: `Sorry! The correct answer was ${this.correctAnswer}`
+        questionFeedbackCorrect: `Cool! 'Slap shot, wrist shot, snap shot, backhand shot' was the correct answer!`,
+        questionFeedbackIncorrect: `Sorry! The correct answer was 'Slap shot, wrist shot, snap shot, backhand shot'.`
     },
+
     {
         question: 'What is the most important skill as a hockey player?',
         answers: [
@@ -96,9 +102,10 @@ const STORE = [
             'Skating skills'
         ],
         correctAnswer: 'Skating skills',
-        questionFeedbackCorrect: `Nice! You choose ${this.correctAnswer}, and that was the correct answer!`,
-        questionFeedbackIncorrect: `Sorry! The correct answer was ${this.correctAnswer}`
+        questionFeedbackCorrect: `Nice! You choose 'Skating skills', and that was the correct answer!`,
+        questionFeedbackIncorrect: `Sorry! The correct answer was 'Skating skills'.`
     },
+
     {
         question: 'What are the six main positions on a hockey team?',
         answers: [
@@ -108,9 +115,10 @@ const STORE = [
             '2 forwards, 2 defencemen, 2 goalies'
         ],
         correctAnswer: '3 forwards, 2 defencemen, 1 goalie',
-        questionFeedbackCorrect: `Good job! ${this.correctAnswer} was the correct answer!`,
-        questionFeedbackIncorrect: `Sorry! The correct answer was ${this.correctAnswer}`
+        questionFeedbackCorrect: `Good job! '3 forwards, 2 defencemen, 1 goalie' was correct!`,
+        questionFeedbackIncorrect: `Sorry! The correct answer was '3 forwards, 2 defencemen, 1 goalie'.`
     },
+
     {
         question: 'How many periods are in a hockey game?',
         answers: [
@@ -120,9 +128,11 @@ const STORE = [
             '6'
         ],
         correctAnswer: '3',
-        questionFeedbackCorrect: `Fantastic! You choose ${this.correctAnswer} periods, and that was correct!`,
-        questionFeedbackIncorrect: `Sorry! The correct answer was ${this.correctAnswer}`
+        questionFeedbackCorrect: `Fantastic! You choose '3' periods, and that was correct!`,
+        questionFeedbackIncorrect: `Sorry! The correct answer was '3' periods.`
     }
+
+
 ]
 
 //WORKING PROPERLY
@@ -136,8 +146,7 @@ function startPage() {
 //initial values so they can be incremented later
 let questionNumber = 0;
 let score = 0;
-let testMatch;
-let selectedRadioID;
+
 
 //start quiz: when quiz is started, hide start div, unhide quiz form div/append quiz form info to empty div
 //WORKING PROPERLY
@@ -151,6 +160,7 @@ function startQuiz() {
 // generate question
 // get question from array by referencing the next question number
 // attaching question div with the info from that question
+//WORKING PROPERLY
 function generateQuestion() {
     $(".startQuizButton").on('click', function () {
     $('.question').append(STORE[questionNumber].question);
@@ -179,54 +189,35 @@ function incrementScore() {
     score++
     $('.score').text(score++)
 };
-
-//this function will get the value of the id of answer selection
-function answerSelectedRadioID() {
-    let selectedRadioID = $('input[type=radio]:checked').attr('id');
-    return selectedRadioID;
-};
-
-// gets correct answer for question
-function correctAnswerMatch() {
-    let testMatch = STORE[questionNumber].correctAnswer;
-    return testMatch;
-};
+    
 
 //on submit run feedback for answer selected
 // starts when submit is hit when 1 radio button is selected
 function runAnswerFeedback() {
-    $(".submitQuestion").on('click', function (event) {
+    $("#form").on('submit', function (event) {
         event.preventDefault();
+        let selectedRadioID = $('input:checked');
+        let answer = selectedRadioID.val();
+        let correctAnswer = `${STORE[questionNumber].correctAnswer}`;
         $(".questionAnswer").hide();
         $(".feedback").show();
-
-            if (($('input[type=radio]:checked').length > 0)) {
-                answerSelectedRadioID();
-                correctAnswerMatch();
-
-                //variables to compare the selected answer with the correct answer
-                let selection = selectedRadioID;
-                let answernum = testMatch;
-                if (selection === answernum) {
-                    feedbackIfCorrect();
-                    //increments score
-                    incrementScore();
-                    // need function calls here for updating the progress and score
-                    $(".feedback").toggleClass('show');
-                    //WHY DOES THE "NEXT QUESTION" NOT SHOW UP IN FEEDBACK PAGE? WHY DOES IT NOT CHECK FOR
-                    //INCORRECT? 
-                } else {
-                    feedbackIfIncorrect();
-                };
-        };
-    });
+        if (answer === correctAnswer) {
+            selectedRadioID.parent().addClass('correct'); 
+                feedbackIfCorrect();
+        } else {
+                selectedRadioID.parent().addClass('incorrect'); 
+                feedbackIfIncorrect();
+            }
+            });
     };
-
+        
     //feedback for correct answer
     // starts when submit is pressed with 1 radio button selected
     // need logic, that if correctAnswer is selected, this feedback div is appended to an empty div
     function feedbackIfCorrect() {
         $(".feedback").html(`${STORE[questionNumber].questionFeedbackCorrect}`);
+        console.log(STORE[questionNumber].correctAnswer);
+        incrementScore();
     };
 
     //feeback for incorrect answer
@@ -235,6 +226,7 @@ function runAnswerFeedback() {
     // to an empty div
     function feedbackIfIncorrect() {
         $(".feedback").html(`${STORE[questionNumber].questionFeedbackIncorrect}`);
+        console.log(STORE[questionNumber].correctAnswer);
     };
 
     //what happens when the user clicks next question button
