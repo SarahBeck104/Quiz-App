@@ -139,6 +139,7 @@ const STORE = [
 function startPage() {
     $(".questionAnswer").hide();
     $(".feedback").hide();
+    $(".questionButton").hide();
     $(".finalSection").hide();
     $('.questionNumber').html(questionNumber + "/" + STORE.length)
 }
@@ -201,6 +202,7 @@ function runAnswerFeedback() {
         let correctAnswer = `${STORE[questionNumber].correctAnswer}`;
         $(".questionAnswer").hide();
         $(".feedback").show();
+        $(".questionButton").show();
         if (answer === correctAnswer) {
             selectedRadioID.parent().addClass('correct'); 
                 feedbackIfCorrect();
@@ -232,12 +234,15 @@ function runAnswerFeedback() {
     //what happens when the user clicks next question button
     // hides feedback and shows the question section for the next question
     function nextQuestion() {
-        $('.nextQuestion').on('click', function () {
-                $('.question').append(STORE[questionNumber].question);
-                $('.radio0').append(STORE[questionNumber].answers[0]);
-                $('.radio1').append(STORE[questionNumber].answers[1]);
-                $('.radio2').append(STORE[questionNumber].answers[2]);
-                $('.radio3').append(STORE[questionNumber].answers[3]);
+        $('.nextQuestion').on('click', function () { 
+            $(".questionAnswer").show();
+            $(".feedback").hide();
+            $(".questionButton").hide();
+            $('.question').append(STORE[questionNumber].question);
+            $('.radio0').append(STORE[questionNumber].answers[0]);
+            $('.radio1').append(STORE[questionNumber].answers[1]);
+            $('.radio2').append(STORE[questionNumber].answers[2]);
+            $('.radio3').append(STORE[questionNumber].answers[3]);
         });
 
     };
