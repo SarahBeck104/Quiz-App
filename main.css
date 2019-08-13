@@ -1,111 +1,87 @@
 * {
     box-sizing: border-box;
   }
-  
-  body {
-  background: url("http://oi67.tinypic.com/5kouo1.jpg");
-  background-size: cover;
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-  padding: 15px;
-  font-size: 18px;
-  text-shadow: 0 1px 0 black;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  }
-  
-  div {
-      padding: 15px;
-      border: black 1px solid;
-      background-color: transparent;
-      height: 100px;
-      font: black;
-      width: 100%;
-      font-size:20px;
-      padding:5px;
-      margin-top: 100px;
-      text-align: center;
-    
+
+body {
+    background: url("http://oi67.tinypic.com/5kouo1.jpg");
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    min-height: 100%;
+    padding: 15px;
+    font-size: 18px;
+    text-shadow: 0 1px 0 black;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
   }
 
-  form {
-      background-color: transparent;
-      margin-left: auto;
-      margin-right: auto;
-      width: 500px;
-      border-radius: 5px;
-  }
-  
-  .header {
-  align-self: flex-start;
-  }
-  
-  .main {
-   
-      /*justify-content: center;
-      align-self: center;*/
-      /*width: 500px;*/
-      margin-top: 100px;
+div {
+    padding: 15px;
+    border: #9e363a;
+    border-width: 1px 2px solid;
+    background-color: transparent;
+    text-align: center;
   }
 
-  .image {
-      width: 130px;
-      align-self: center;
-      box-shadow: 0 1px 0 black;
+.header {
+    align-self: center;
+    flex: none;
+    margin-bottom: 65px;
   }
 
-  .questionAnswer {
-      align-self: center;
+.main {
+    margin-bottom: 10px;
+    flex: 1;
   }
 
-  input[type="radio"] {
+main {
+    align-self: center;
+  }
+
+.image {
+    width: 130px;
+    align-self: center;
+    box-shadow: 0 1px 0 black;
+  }
+
+.main, .feedback, .questionButton, .finalSection {
+background-color: #2d54af;
+  }
+
+.questionAnswer {
+    background-color: #2d54af;
+    border-radius: 2px;
+  }
+
+input[type="radio"] {
     -webkit-box-shadow: 0px 0px 15px 3px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 0px 15px 3px rgba(0,0,0,0.75);
     box-shadow: 0px 0px 15px 3px rgba(0,0,0,0.75);
     border: 5px solid white; 
     border-radius: 5px;
   }
- 
-  .startQuizButton {
-      background: url("https://www.pngkey.com/png/detail/67-678959_hockey-puck-png-clipart-hockey-puck-transparent-background.png") no-repeat;
-      cursor: pointer;
-      color: black;
-      padding: 5px;
-      margin: 10px;
-      border-radius: 10px;
-      width: 150px;
-      font-size: 25px;
-      text-align: center;
-      display: block;
+
+button {
+    background: whitesmoke;
+    color: #091f36;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 12px;
   }
 
-  ul {
-      list-style: none;
-  }
-  
-  .footer {
-  text-align: center;
-  position: relative;
+.submitQuestion {
+    margin-top: 5px;
   }
 
-  @media screen and (max-width: 800px) {
-      .header {
-          width:60%;
-          margin-left:1%;
-          margin-right:1%;
-      }
-      .questionAnswer {
-          width: 90%;
-          margin: 5%;
-      }
+ul {
+    list-style: none;
   }
 
-  @media screen and (max-width:500px) {
-      .questionAnswer{
-          width: 80%;
-          margin: 5%;
-    }
+.footer {
+    flex: none;
+    text-align: center;
   }
