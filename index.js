@@ -135,7 +135,6 @@ const STORE = [
 
 ]
 
-//WORKING PROPERLY
 function startPage() {
     $(".questionAnswer").hide();
     $(".feedback").hide();
@@ -147,13 +146,8 @@ function startPage() {
 //initial values so they can be incremented later
 let questionNumber = 0;
 let score = 0;
-// let currentQuestion = 0; I think that part of my problem is calling questionNumber when I should have a working index to iterate through,
-    //but I'm checking how to format this before putting it in
-
-
 
 //start quiz: when quiz is started, hide start div, unhide quiz form div/append quiz form info to empty div
-//WORKING PROPERLY
 function startQuiz() {
     $(".startQuizButton").on('click', function () {
         $(".main").hide();
@@ -164,17 +158,13 @@ function startQuiz() {
 // generate question
 // get question from array by referencing the next question number
 // attaching question div with the info from that question
-//WORKING PROPERLY
 function generateQuestion() {
     $(".startQuizButton").on('click', function () {
-    $('.question').append(STORE[questionNumber].question); //that questionNumber is a problem... should be a question index?
-    $('.radio0').append(STORE[questionNumber].answers[0]);
-    $('.radio1').append(STORE[questionNumber].answers[1]);
-    $('.radio2').append(STORE[questionNumber].answers[2]);
-    $('.radio3').append(STORE[questionNumber].answers[3]);
-
-        console.log("questionNumber: ");
-        console.log(questionNumber);
+    $('.question').html(STORE[questionNumber].question);
+    $('.radio0 .the-answer').html(STORE[questionNumber].answers[0]);
+    $('.radio1 .the-answer').html(STORE[questionNumber].answers[1]);
+    $('.radio2 .the-answer').html(STORE[questionNumber].answers[2]);
+    $('.radio3 .the-answer').html(STORE[questionNumber].answers[3]);
         incrementQuestionNumber();
     });
 };
@@ -182,22 +172,20 @@ function generateQuestion() {
 //increment question number
 // to get 1 higher question number it should increment ++ each time the next question is generated
 // for loop, max length of the amount of questions
-//WORKING PROPERLY
 function incrementQuestionNumber() {
-    $('.questionNumber').html(questionNumber + "/" + STORE.length)
+    $('.questionNumber').html(questionNumber+1 + "/" + STORE.length)
 };
 
 //increment score and changes the display
 // to get 1 higher score it should increment ++ each time the "next" button is pressed AFTER a "correct feedback"
 function incrementScore() {
     score++
-    $('.score').text(score++)
+    $('.score').text(score)
 };
     
 
 //on submit run feedback for answer selected
 // starts when submit is hit when 1 radio button is selected
-//WORKING PROPERLY
 function runAnswerFeedback() {
     $("#form").on('submit', function (event) {
         event.preventDefault();
@@ -217,75 +205,72 @@ function runAnswerFeedback() {
             });
     };
         
-    //feedback for correct answer
-    // starts when submit is pressed with 1 radio button selected
-    // need logic, that if correctAnswer is selected, this feedback div is appended to an empty div
-    //WORKING PROPERLY
-    function feedbackIfCorrect() {
-        $(".feedback").html(`${STORE[questionNumber].questionFeedbackCorrect}`);
-        console.log(STORE[questionNumber].correctAnswer);
+//feedback for correct answer
+// starts when submit is pressed with 1 radio button selected
+// need logic, that if correctAnswer is selected, this feedback div is appended to an empty div
+function feedbackIfCorrect() {
+    $(".feedback").html(`${STORE[questionNumber].questionFeedbackCorrect}`);
         incrementScore();
     };
 
-    //feeback for incorrect answer
-    // starts when submit is pressed with 1 radio button selected
-    // need logic, that if correctAnswer is NOT the 1 selected, this feedback div is appended 
-    // to an empty div
-    //WORKING PROPERLY
-    function feedbackIfIncorrect() {
-        $(".feedback").html(`${STORE[questionNumber].questionFeedbackIncorrect}`);
-        console.log(STORE[questionNumber].correctAnswer);
+//feeback for incorrect answer
+// starts when submit is pressed with 1 radio button selected
+// need logic, that if correctAnswer is NOT the 1 selected, this feedback div is appended to an empty div
+function feedbackIfIncorrect() {
+    $(".feedback").html(`${STORE[questionNumber].questionFeedbackIncorrect}`);
     };
 
-    //what happens when the user clicks next question button
-    // hides feedback and shows the question section for the next question
-   function nextQuestion() {
-        $('.nextQuestion').on('click', function () { 
-            $(".questionAnswer").show();
-            $(".feedback").hide();
-            $(".questionButton").hide();
-            if (questionNumber === '10') {
-                $('.finalSection').show(); // .html(` `) use to add content to final section once this function works
+//what happens when the user clicks next question button
+// hides feedback and shows the question section for the next question
+function nextQuestion() {
+    $('.nextQuestion').on('click', function () { 
+        $(".questionAnswer").show();
+        $(".feedback").hide();
+        $(".questionButton").hide();
+            if (questionNumber === 9) {
+                $('.questionAnswer').hide();
+                $('.finalSection').show();
                 $('input[type=radio]').prop('checked', false);
                 $('.score').toggleClass('score');
-            } else {
-                $('.feedback').toggleClass('hide');
-                $('.question').append(STORE[questionNumber].question);
-                $('.radio0').append(STORE[questionNumber].answers[0]);
-                $('.radio1').append(STORE[questionNumber].answers[1]);
-                $('.radio2').append(STORE[questionNumber].answers[2]);
-                $('.radio3').append(STORE[questionNumber].answers[3]);
+                startNewQuiz();
+                
+                    if (score == 10) {
+                        $('.finalSection').html(`<div class="results correctFeedback"><h3>You're perfect!</h3><img src="https://cdn4.iconfinder.com/data/icons/hockey-outline/100/h-10-512.png" alt="stanley cup"/><p>You got ${score} / 10</p><p>You're a superstar on the ice! Get out there and join the champions!</p><button class="restart">Restart Quiz</button></div>`);
+                    } else if (score < 10 && score >= 5) {
+                        $('.finalSection').html(`<div class="results correctFeedback"><h3>Great game!</h3><p>You got ${score} / 10</p><p>You're a star contender! Look into the sport a little more and you'll be Stanley Cup material!</p><button class="restart">Restart Quiz</button></div>`);
+                    } else {
+                        $('.finalSection').html(`<div class="results correctFeedback"><h3>Sorry, not enough to pass!</h3><p>You got ${score} / 10</p><p>With more experience and study in hockey this quiz will be no problem for you.</p><button class="restart">Restart Quiz</button></div>`);
+                    }
+                }
+            else {
+                $('.feedback').hide();
+                questionNumber++
+                incrementQuestionNumber();
+                $('.question').html(STORE[questionNumber].question);
+                $('.radio0 .the-answer').html(STORE[questionNumber].answers[0]);
+                $('.radio1 .the-answer').html(STORE[questionNumber].answers[1]);
+                $('.radio2 .the-answer').html(STORE[questionNumber].answers[2]);
+                $('.radio3 .the-answer').html(STORE[questionNumber].answers[3]);
             };
         });
     };
     
 //start a new quiz function: when clicked will reload page to start quiz over
-// will only start when the "start over" button from the quizFinale feedback page is pressed, so
+// will only start when the "start over" button from the quizFinale feedback page is pressed
 // returns to welcome 
-    // v change to jquery methods for consistency v 
 function startNewQuiz() {
-    $('.restart').on('click', function () {
-        $('.finalSection').hide();
-        $(".questionAnswer").show();
-        questionNumber = 0;
-        document.getElementsByClassName("question")[0].innerHTML = ``;
-        document.getElementsByClassName("radio0")[0].innerHTML = ``;
-        document.getElementsByClassName("radio1")[0].innerHTML = ``;
-        document.getElementsByClassName("radio2")[0].innerHTML = ``;
-        document.getElementsByClassName("radio3")[0].innerHTML = ``;
-        document.getElementsByClassName("submitQuestion")[0].innerHTML = `Next Question`;
-        $('.score').toggleClass('showScore');
+    $("main").on('click', '.restart', function(event) {
+        location.reload();
         });
-    };
+    }
 
-    //run quiz functions
-    function createQuizApp() {
+//run quiz functions
+function createQuizApp() {
         startPage();
         startQuiz();
         generateQuestion();
         runAnswerFeedback(); 
         nextQuestion();
-        startNewQuiz();
     };
 
 
